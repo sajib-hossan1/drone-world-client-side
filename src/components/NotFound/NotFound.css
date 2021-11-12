@@ -1,0 +1,20 @@
+.not-found-container {
+  margin: 20px 0;
+  text-align: center;
+}
+
+.not-found-container img {
+  width: 45%;
+}
+
+.back-to-home-btn {
+  background-color: #fc6539;
+  color: white;
+  margin-top: 5px;
+  border: none;
+  outline: none;
+  padding: 8px 20px;
+  border-radius: 30px;
+  font-size: 18px;
+  font-weight: 500;
+}

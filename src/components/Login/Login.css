@@ -1,0 +1,32 @@
+.login-btn {
+  background-color: #fc6539 !important;
+  color: white !important;
+  padding: 6px 15px !important;
+  font-weight: bold !important;
+}
+
+.regi-g-area {
+  padding-top: 50px;
+  width: 60%;
+  margin: 0 auto;
+}
+
+.register {
+  text-decoration: none;
+  color: blue;
+}
+
+.regi-g-area p {
+  margin-top: 0;
+}
+
+.login-btn-g {
+  background-color: #122547 !important;
+  color: rgb(255, 255, 255) !important;
+  padding: 6px 15px !important;
+  font-weight: bold !important;
+  border: 0;
+  font-size: 14px;
+  padding: 9px 24px !important;
+  border-radius: 5px;
+}

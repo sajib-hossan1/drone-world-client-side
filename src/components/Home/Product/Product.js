@@ -29,7 +29,7 @@ const Product = ({product}) => {
                     {details.slice(0,100)}...
                     </Typography>
                     <h3 className="price">Price : ${price}</h3>
-                    <Link className="buy-btn-link"><Button className="buy-btn">Buy Now</Button></Link>
+                    <Link to="" className="buy-btn-link"><Button className="buy-btn">Buy Now</Button></Link>
                 </CardContent>
             </Card>
         </Grid>

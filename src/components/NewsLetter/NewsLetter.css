@@ -1,0 +1,13 @@
+.newsletter-container {
+  margin-top: 40px;
+  background-color: whitesmoke;
+  padding: 40px 0;
+}
+
+.newsletter-container h1 {
+  text-align: center;
+}
+
+.newsletter-container p {
+  text-align: center;
+}

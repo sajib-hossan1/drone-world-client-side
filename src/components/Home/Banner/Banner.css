@@ -19,3 +19,14 @@
   font-weight: 700;
   text-align: center;
 }
+
+.banner-btn {
+  background-color: #fc6539;
+  color: white;
+  border: 0;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 3px;
+  font-weight: 600;
+  margin-top: 20px;
+}

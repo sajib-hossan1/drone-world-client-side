@@ -6,7 +6,7 @@ import Login from './components/Login/Login';
 
 function App() {
   return (
-    <div className="App">
+    <div>
       <Router>
           <Navigation></Navigation>
         <Switch>

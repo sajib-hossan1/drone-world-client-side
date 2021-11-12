@@ -7,9 +7,9 @@ const Banner = () => {
     return (
         <div className="banner">
             <Box className="banner-text">
-                <Typography variant="h2">The Future Drone</Typography>
+                <Typography sx={{fontWeight : 'bold'}} variant="h2">The Future <span className="secondary-color">Drone</span></Typography>
                 <br />
-                <Typography sx={{mt:-3}} variant="h2">Is Here</Typography>
+                <Typography sx={{mt:-3}} variant="h2">Is <span className="secondary-color">Here</span></Typography>
             </Box>
         </div>
     );

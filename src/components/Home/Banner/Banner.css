@@ -1,3 +1,7 @@
+.secondary-color {
+  color: #fc6539;
+}
+
 .banner {
   background-image: url(../../../images/banner.jpg);
   background-position: center;
@@ -12,4 +16,6 @@
 .banner-text {
   margin-top: -100px;
   color: rgb(246, 246, 246);
+  font-weight: 700;
+  text-align: center;
 }

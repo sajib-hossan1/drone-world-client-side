@@ -1,0 +1,15 @@
+.banner {
+  background-image: url(../../../images/banner.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 88vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.banner-text {
+  margin-top: -100px;
+  color: rgb(246, 246, 246);
+}

@@ -1,0 +1,43 @@
+.review-card {
+  max-width: 345px;
+  padding: 15px;
+  box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  border-radius: 5px;
+  margin: 0 auto;
+  height: 420px;
+}
+
+.review-img {
+  text-align: center;
+}
+
+.review-img img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
+
+.review-description {
+  position: relative;
+}
+
+.review-description::before {
+  content: open-quote;
+  font-size: 50px;
+  opacity: 0.5;
+  padding: 2px;
+}
+
+.review-description::after {
+  content: close-quote;
+  font-size: 50px;
+  position: absolute;
+  opacity: 0.5;
+  padding: 2px;
+}
+
+.review-details h3 {
+  color: #fc6539;
+  font-weight: 500;
+}

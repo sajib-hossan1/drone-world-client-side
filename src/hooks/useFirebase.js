@@ -9,6 +9,7 @@ const useFirebase = () => {
     const [user, setUser] = useState({});
     const [error, setError] = useState('')
     const [isLoading, setIsLoading] = useState(true)
+    const [admin, setAdmin] = useState(false);
 
     // firebase auth
     const auth = getAuth();
@@ -18,6 +19,12 @@ const useFirebase = () => {
         setIsLoading(false)
         const googleProvider = new GoogleAuthProvider();
         return signInWithPopup(auth, googleProvider)
+        .then((result) => {
+            const user = result.user;
+            // save or update existing user to the database
+            saveUser(user.email, user.displayName, 'PUT')
+            setError('')
+        })
         .catch(error => {
             setError(error.message)
         })
@@ -25,12 +32,14 @@ const useFirebase = () => {
     }
 
     // sign in existing user
-    const processLogin = (email, password) => {
-        setIsLoading(false)
+    const processLogin = (email, password,location,history) => {
+        setIsLoading(true)
         signInWithEmailAndPassword(auth,email, password)
         .then(userLogin => {
             const user = userLogin.user;
             setUser(user)
+            const redirect_uri = location.state?.from || '/';
+            history.push(redirect_uri)
             setError('')
         })
         .catch(error2 => {
@@ -44,13 +53,14 @@ const useFirebase = () => {
 
     // register or creating a new user
     const createNewUser = (name,email, password) => {
-        setIsLoading(false)
         createUserWithEmailAndPassword(auth, email, password)
         .then(userCredential => {
             const user = userCredential.user;
+            // save user to the database
+            saveUser(email,name, 'POST')
+
             setUserName(name);
             setError('');
-            console.log(user);
         })
         .catch(error => {
             const errorMessage = error.message;
@@ -61,7 +71,6 @@ const useFirebase = () => {
 
     // set user name when user register
     const setUserName = (name) => {
-        setIsLoading(false)
         updateProfile(auth.currentUser, {
             displayName : name
         })
@@ -69,7 +78,6 @@ const useFirebase = () => {
         .catch(error => {
             setError(error.message)
         })
-        .finally(() => setIsLoading(false))
     };
 
     // sign out existing user
@@ -99,10 +107,34 @@ const useFirebase = () => {
     }, [])
 
 
+    // check the logged in user admin or not
+    useEffect(() => {
+        fetch(`http://localhost:5000/users/${user.email}`)
+        .then(res => res.json())
+        .then(data => setAdmin(data.admin))
+    },[user.email])
+
+
+    // save user to the database
+    const saveUser = (email, displayName, method) => {
+        const user = {email, displayName}
+
+        fetch('http://localhost:5000/users', {
+            method : method,
+            headers : {
+                'content-type' : 'application/json'
+            },
+            body : JSON.stringify(user)
+        })
+        .then()
+
+    }
+
 
 
     return {
         user,
+        admin,
         error,
         isLoading,
         signInUsingGoogle,

@@ -1,21 +1,21 @@
 import './App.css';
 import { BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import Home from './components/Home/Home/Home';
-import Navigation from './shared/Navigation/Navigation';
 import Login from './components/Login/Login';
 import Register from './components/Register/Register';
 import AuthProvider from './components/context/AuthProvider';
 import Explore from './components/Explore/Explore';
-import Footer from './shared/Footer/Footer';
 import NotFound from './components/NotFound/NotFound';
 import AboutUs from './components/AboutUs/AboutUs';
+import PrivateRoute from './components/PrivateRoute/PrivateRoute';
+import BuyNow from './components/BuyNow/BuyNow';
+import DashBoard from './components/DashBoard/DashBoard/DashBoard';
 
 function App() {
   return (
     <div>
       <AuthProvider>
         <Router>
-            <Navigation></Navigation>
             <Switch>
                 <Route exact path='/'>
                 <Home></Home>
@@ -23,6 +23,14 @@ function App() {
                 <Route exact path='/home'>
                 <Home></Home>
                 </Route>
+
+                <PrivateRoute path='/dashboard'>
+                  <DashBoard></DashBoard>
+                </PrivateRoute>
+
+                <PrivateRoute path="/buyNow/:id">
+                  <BuyNow></BuyNow>
+                </PrivateRoute>
                 <Route path='/explore'>
                 <Explore></Explore>
                 </Route>
@@ -39,7 +47,6 @@ function App() {
                 <NotFound></NotFound>
                 </Route>
             </Switch>
-            <Footer></Footer>
         </Router>
       </AuthProvider>
     </div>

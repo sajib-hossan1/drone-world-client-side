@@ -21,7 +21,7 @@ const Products = () => {
                 <Box sx={{ flexGrow: 1 }}>
                     <Grid container spacing={4}>
                         {
-                            products.map(product => <Product 
+                            products?.map(product => <Product 
                                 key={product.id}
                                 product={product}
                             ></Product>)

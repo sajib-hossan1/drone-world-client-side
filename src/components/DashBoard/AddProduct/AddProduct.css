@@ -1,0 +1,30 @@
+.add-product {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.add-product h2 {
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.add-product form {
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  margin: 0 auto;
+}
+
+.add-product form input {
+  padding: 10px 3px;
+  margin-bottom: 20px;
+}
+
+.add-p-btn {
+  background-color: #fc6539;
+  color: white;
+  padding: 8px 15px;
+  font-weight: bold;
+  border: none;
+  border-radius: 3px;
+}

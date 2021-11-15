@@ -5,11 +5,13 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
-import './Product.css'
-import {Link} from 'react-router-dom'
+import './ShowProduct.css'
 
-const Product = ({product}) => {
-    const {_id,name, image, details, price} = product;
+const ShowProduct = (props) => {
+    const {_id ,name, image, details, price} = props.product;
+
+
+
     return (
         <Grid item xs={12} sm={6} md={4}>
             <Card className="product-card" style={{margin : '0 auto'}} sx={{ maxWidth: 345, boxShadow:0 }}>
@@ -28,11 +30,11 @@ const Product = ({product}) => {
                     {details.slice(0,100)}...
                     </Typography>
                     <h3 className="price">Price : ${price}</h3>
-                    <Link  to={`/buyNow/${_id}`} className="buy-btn-link"><Button className="buy-btn">Buy Now</Button></Link>
+                    <Button onClick={() => props.handleDelete(_id)} className="dlt-product-btn">Delete Product</Button>
                 </CardContent>
             </Card>
         </Grid>
     );
 };
 
-export default Product;
+export default ShowProduct;

@@ -1,10 +1,13 @@
-import { Button, TextField } from '@mui/material';
+import { Button, CircularProgress, TextField } from '@mui/material';
 import React, { useState } from 'react';
 import './Login.css'
 import { Link } from 'react-router-dom'
 import gIcon from '../../images/g-icon.png'
 import useAuth from '../../hooks/useAuth'
 import {useLocation, useHistory} from 'react-router-dom'
+import Navigation from '../../shared/Navigation/Navigation';
+import Footer from '../../shared/Footer/Footer';
+import { Box } from '@mui/system';
 
 
 const Login = () => {
@@ -12,7 +15,7 @@ const Login = () => {
     const [loginData, setLoginData] = useState({});
 
     // firebase authentication
-    const {signInUsingGoogle, processLogin, error } = useAuth();
+    const {signInUsingGoogle, processLogin, error, isLoading} = useAuth();
 
     // getting value of an user
     const handleOnBlur = e => {
@@ -25,18 +28,18 @@ const Login = () => {
         e.preventDefault();
     }
 
-    console.log(loginData);
 
     // redirect history for returning from log in page to where user came
     const location = useLocation();
     const history = useHistory();
     const redirect_uri = location.state?.from || '/';
 
-
     // user login
     const handleLogin = e => {
         e.preventDefault();
+        processLogin(loginData?.email,loginData?.password,location, history)
     }
+    
 
     // user login with goole
     const handleGoogleSignIn = () => {
@@ -49,6 +52,7 @@ const Login = () => {
 
     return (
         <div>
+            <Navigation></Navigation>
             <h1 className="section-title">Please Log In Here</h1>
             <form onSubmit={handleLogin} style={{width : '60%', margin : "0 auto"}}>
                 <TextField
@@ -67,6 +71,10 @@ const Login = () => {
                     name="password"
                     onBlur={handleOnBlur}
                 />
+                <p>{error}</p>
+                <Box>
+                    {isLoading && <CircularProgress />}
+                </Box>
                 <Button type="submit" className="login-btn">Log In</Button>
             </form>
             <div className="regi-g-area">
@@ -74,6 +82,7 @@ const Login = () => {
                 <p>or</p>
                 <Button onClick={handleGoogleSignIn} className="login-btn-g"><img style={{width : '20px'}} src={gIcon} alt="" />oogle Sign In</Button>
             </div>
+            <Footer></Footer>
         </div>
     );
 };

@@ -31,9 +31,9 @@ const Footer = () => {
                         <Grid item xs={12} sm={6} md={4}>
                             <div style={footerCenter}>
                                 <h2>Follow Us</h2>
-                                <Link to="" className="footer-link"><p><i class="fab fa-facebook-square"></i> Facebook</p></Link>
-                                <Link to="" className="footer-link"><p><i class="fab fa-twitter-square"></i> Twitter</p></Link>
-                                <Link to="" className="footer-link"><p><i class="fab fa-youtube-square"></i> YouTube</p></Link>
+                                <Link to="" className="footer-link"><p><i className="fab fa-facebook-square"></i> Facebook</p></Link>
+                                <Link to="" className="footer-link"><p><i className="fab fa-twitter-square"></i> Twitter</p></Link>
+                                <Link to="" className="footer-link"><p><i className="fab fa-youtube-square"></i> YouTube</p></Link>
                             </div>
                         </Grid>
                     </Grid>

@@ -20,29 +20,21 @@ import ListItemText from '@mui/material/ListItemText';
 const Navigation = () => {
     const linkStyle = {
         textDecoration : 'none',
-        color : 'white'
+        color : 'white',
+        marginRight : '20px'
     }
 
     const theme = useTheme();
+
     const useStyle = makeStyles({
-        navIcon : {
-            [theme.breakpoints.up('md')]: {
-                display : 'none'
-              }
-        },
         navItem : {
             [theme.breakpoints.down('md')]: {
                 display : 'none'
               }
-        },
-        navLogo : {
-            [theme.breakpoints.down('md')]: {
-                textAlign : 'right'
-              }
         }
     })
 
-    const {navIcon,navItem,navLogo} = useStyle();
+    const {navItem,navLogo} = useStyle();
 
     // get user info from firebase
     const {user, logOut} = useAuth();
@@ -50,7 +42,6 @@ const Navigation = () => {
 
     // responsive drawer state
     const [state, setState] = React.useState(false);
-
 
     return (
         <>
@@ -63,8 +54,8 @@ const Navigation = () => {
                         color="inherit"
                         aria-label="menu"
                         sx={{ mr: 2 }}
-                        className={navIcon}
-                        onClick={()=> setState(true)}
+                        onClick={() => setState(true)}
+                        sx ={{display : {md : 'none'}}}
                     >
                         <MenuIcon />
                     </IconButton>
@@ -72,15 +63,20 @@ const Navigation = () => {
                         Drone <span className="secondary-color">World</span>
                     </Typography>
                     <Box className={navItem}>
-                        <Link style={linkStyle} to='/'><Button color="inherit">Home</Button></Link>
-                        <Link style={linkStyle} to='/explore'><Button color="inherit">Explore</Button></Link>
-                        <Link style={linkStyle} to='/aboutUs'><Button color="inherit">About Us</Button></Link>
+                        <Link style={linkStyle} to='/'>Home</Link>
+                        <Link style={linkStyle} to='/explore'>Explore</Link>
+                        <Link style={linkStyle} to='/aboutUs'>About Us</Link>
+                    </Box>
                         {
-                            user?.email ? <button onClick={logOut}>Log Out</button> :
-                             <Link style={linkStyle} to='/login'><Button color="inherit">Login</Button></Link>
+                            user?.email && <Link className={navItem} style={linkStyle} to='/dashboard'>DashBoard</Link>
+                        }
+                    <Box>
+                        {
+                            user?.email ? <Button className="logout-btn" onClick={logOut}>Log Out</Button> :
+                             <Link style={linkStyle} to='/login'><Button className="login-btn">Login</Button></Link>
                         }
                     </Box>
-                    <Typography variant="h6" component="div">
+                    <Typography className={navItem} sx={{ml :2}} variant="p" component="div">
                         {user?.displayName}
                     </Typography>
                 </Toolbar>
@@ -107,8 +103,25 @@ const Navigation = () => {
                         <ListItem button>
                             <ListItemText><Link style={linkStyle} to='/aboutUs'>About Us</Link></ListItemText>
                         </ListItem>
+                        <Divider />
+                        <ListItem button>
+                        {
+                            user?.email && <Link style={linkStyle} to='/dashboard'>DashBoard</Link>
+                        }
+                        </ListItem>
+                        <Divider />
+                        <ListItem button>
+                            <Typography style={{color : 'white'}} sx={{ml :2}} variant="p" component="div">
+                            {user?.displayName}
+                            </Typography>
+                        </ListItem>
+                        <ListItem button>
+                            {
+                                user?.email ? <Button className="login-btn" onClick={logOut}>Log Out</Button> :
+                                <Link style={linkStyle} to='/login'><Button className="login-btn">Login</Button></Link>
+                            }
+                        </ListItem>
                     </List>
-                    {/* <Divider /> */}
                 </Box>
             </Drawer>
             </React.Fragment>

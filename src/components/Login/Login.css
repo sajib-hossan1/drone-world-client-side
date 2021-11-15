@@ -5,6 +5,13 @@
   font-weight: bold !important;
 }
 
+.logout-btn {
+  background-color: #fc6539 !important;
+  color: white !important;
+  padding: 6px 15px !important;
+  font-weight: bold !important;
+}
+
 .regi-g-area {
   padding-top: 50px;
   width: 60%;

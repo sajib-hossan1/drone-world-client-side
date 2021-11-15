@@ -65,10 +65,6 @@ function DashBoard(props) {
             <Link style={linkStyle} to='/home'>Home</Link>
         </ListItem>
         <Divider />
-        <ListItem button>
-            <Link style={linkStyle} to={`${url}`}>DashBoard</Link>
-        </ListItem>
-        <Divider />
         
         {admin && 
         <Box>

@@ -18,7 +18,7 @@ const MyOrders = () => {
 
     // load an user orders from database
     useEffect(() => {
-        fetch(`http://localhost:5000/orders?email=${user.email}`)
+        fetch(`https://limitless-chamber-53235.herokuapp.com/orders?email=${user.email}`)
         .then(res => res.json())
         .then(data => setMyOrders(data))
     } ,[user.email])
@@ -28,7 +28,7 @@ const MyOrders = () => {
     const handleDelete = id => {
         const proceed = window.confirm('Are you sure you want to delete?')
         if (proceed) {
-            const url = `http://localhost:5000/orders/${id}`
+            const url = `https://limitless-chamber-53235.herokuapp.com/orders/${id}`
             fetch(url, {
                 method: 'DELETE',
             })

@@ -14,7 +14,7 @@ const ManageAllOrders = () => {
 
     // get all orders from database
     useEffect(() => {
-        fetch('http://localhost:5000/allOrders')
+        fetch('https://limitless-chamber-53235.herokuapp.com/allOrders')
         .then(res => res.json())
         .then(data => setOrders(data))
     },[])
@@ -24,7 +24,7 @@ const ManageAllOrders = () => {
     const handleStatusUpdate = id => {
         const proceed = window.confirm('Are you sure you want to shipped this product?')
         if(proceed){
-            const url = `http://localhost:5000/orders/${id}`
+            const url = `https://limitless-chamber-53235.herokuapp.com/orders/${id}`
             fetch(url, {
                 method: 'PUT',
             })
@@ -45,7 +45,7 @@ const ManageAllOrders = () => {
     const handleDelete = id => {
         const proceed = window.confirm('Are you sure you want to delete?')
         if (proceed) {
-            const url = `http://localhost:5000/orders/${id}`
+            const url = `https://limitless-chamber-53235.herokuapp.com/orders/${id}`
             fetch(url, {
                 method: 'DELETE',
             })

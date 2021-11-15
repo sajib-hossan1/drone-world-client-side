@@ -39,7 +39,7 @@ const BuyNow = () => {
         const status = 'Pending'
         data.status = status;
 
-        fetch('http://localhost:5000/order', {
+        fetch('https://limitless-chamber-53235.herokuapp.com/order', {
             method : 'POST',
             headers : {
                 'content-type' : 'application/json'
@@ -59,7 +59,7 @@ const BuyNow = () => {
 
     // get item/order item details from database
     useEffect(() => {
-        fetch(`http://localhost:5000/buyNow/${id}`)
+        fetch(`https://limitless-chamber-53235.herokuapp.com/buyNow/${id}`)
         .then(res => res.json())
         .then(data => setProductDetails(data))
     } ,[])

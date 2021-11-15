@@ -8,7 +8,7 @@ const AddProduct = () => {
 
     
     const onSubmit = data => {
-        axios.post('http://localhost:5000/products', data)
+        axios.post('https://limitless-chamber-53235.herokuapp.com/products', data)
         .then(res => {
             if(res.data.insertedId){
                 alert('A New Product Added successfully')

@@ -36,7 +36,7 @@ const GiveReview = () => {
         const customerReview = {
             ...review
         }
-        fetch('http://localhost:5000/customerReview', {
+        fetch('https://limitless-chamber-53235.herokuapp.com/customerReview', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

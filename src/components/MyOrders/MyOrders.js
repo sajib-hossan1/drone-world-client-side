@@ -50,7 +50,7 @@ const MyOrders = () => {
                 Your Total Orders : {myOrders.length}
             </Typography>
             <TableContainer style={{boxShadow : '0px 0px 20px rgba(0,0,0,0.20)'}} sx={{mt:5}} component={Paper}>
-                <Table sx={{ minWidth: 650 }} aria-label="simple table">
+                <Table sx={{ minWidth: 350 }} aria-label="simple table">
                     <TableHead>
                         <TableRow>
                             <TableCell>Name</TableCell>

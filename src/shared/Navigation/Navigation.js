@@ -53,9 +53,9 @@ const Navigation = () => {
                         edge="start"
                         color="inherit"
                         aria-label="menu"
-                        sx={{ mr: 2 }}
+                        sx={{ mr: 2 , display : {md : "none"}}}
                         onClick={() => setState(true)}
-                        sx ={{display : {md : 'none'}}}
+                        // sx ={{display : {md : 'none'}}}
                     >
                         <MenuIcon />
                     </IconButton>

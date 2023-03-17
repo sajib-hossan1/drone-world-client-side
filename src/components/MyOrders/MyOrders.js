@@ -18,7 +18,7 @@ const MyOrders = () => {
 
     // load an user orders from database
     useEffect(() => {
-        fetch(`https://limitless-chamber-53235.herokuapp.com/orders?email=${user.email}`)
+        fetch(`https://drone-world-server.vercel.app/orders?email=${user.email}`)
         .then(res => res.json())
         .then(data => setMyOrders(data))
     } ,[user.email])
@@ -28,7 +28,7 @@ const MyOrders = () => {
     const handleDelete = id => {
         const proceed = window.confirm('Are you sure you want to delete?')
         if (proceed) {
-            const url = `https://limitless-chamber-53235.herokuapp.com/orders/${id}`
+            const url = `https://drone-world-server.vercel.app/orders/${id}`
             fetch(url, {
                 method: 'DELETE',
             })
@@ -50,7 +50,7 @@ const MyOrders = () => {
                 Your Total Orders : {myOrders.length}
             </Typography>
             <TableContainer style={{boxShadow : '0px 0px 20px rgba(0,0,0,0.20)'}} sx={{mt:5}} component={Paper}>
-                <Table sx={{ minWidth: '350px' }} aria-label="simple table">
+                <Table sx={{ minWidth: '400px' }} aria-label="simple table">
                     <TableHead>
                         <TableRow>
                             <TableCell>Name</TableCell>

@@ -39,7 +39,7 @@ const BuyNow = () => {
         const status = 'Pending'
         data.status = status;
 
-        fetch('https://limitless-chamber-53235.herokuapp.com/order', {
+        fetch('https://drone-world-server.vercel.app/order', {
             method : 'POST',
             headers : {
                 'content-type' : 'application/json'
@@ -59,7 +59,7 @@ const BuyNow = () => {
 
     // get item/order item details from database
     useEffect(() => {
-        fetch(`https://limitless-chamber-53235.herokuapp.com/buyNow/${id}`)
+        fetch(`https://drone-world-server.vercel.app/buyNow/${id}`)
         .then(res => res.json())
         .then(data => setProductDetails(data))
     } ,[])

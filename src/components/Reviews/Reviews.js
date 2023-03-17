@@ -9,7 +9,7 @@ const Reviews = () => {
 
     // get all reviews from database
     useState(() => {
-        fetch('https://limitless-chamber-53235.herokuapp.com/reviews')
+        fetch('https://drone-world-server.vercel.app/reviews')
         .then(res => res.json())
         .then(data => setReviews(data))
     },[])

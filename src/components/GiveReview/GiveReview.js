@@ -36,7 +36,7 @@ const GiveReview = () => {
         const customerReview = {
             ...review
         }
-        fetch('https://limitless-chamber-53235.herokuapp.com/customerReview', {
+        fetch('https://drone-world-server.vercel.app/customerReview', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

@@ -109,7 +109,7 @@ const useFirebase = () => {
 
     // check the logged in user admin or not
     useEffect(() => {
-        fetch(`https://limitless-chamber-53235.herokuapp.com/users/${user.email}`)
+        fetch(`https://drone-world-server.vercel.app/users/${user.email}`)
         .then(res => res.json())
         .then(data => setAdmin(data.admin))
     },[user.email])
@@ -119,7 +119,7 @@ const useFirebase = () => {
     const saveUser = (email, displayName, method) => {
         const user = {email, displayName}
 
-        fetch('https://limitless-chamber-53235.herokuapp.com/users', {
+        fetch('https://drone-world-server.vercel.app/users', {
             method : method,
             headers : {
                 'content-type' : 'application/json'

@@ -8,7 +8,7 @@ const AddProduct = () => {
 
     
     const onSubmit = data => {
-        axios.post('https://limitless-chamber-53235.herokuapp.com/products', data)
+        axios.post('https://drone-world-server.vercel.app/products', data)
         .then(res => {
             if(res.data.insertedId){
                 alert('A New Product Added successfully')

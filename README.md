@@ -4,7 +4,10 @@ Live web site [Drone-World](https://drone-world-3cf69.web.app/).
 
 ## Why this web site made for
 
-This is niche related or one product based web site.This is drone product web site.This web site has lots of facilities like one can log in, register and also login with Google.People can make order, see their orders in the My Orders list.And people also can make a review comment on this web site.This web site have a separate dashboard form both user and admin.Admin can shipped or delete anyones orders, add a product and make admin some one else.
+- One niche product, fully responsive MERN stack website including firebase authentication
+- This website has a ‘Dashboard’ functionality for users and admin. Users can see their all orders here and take action to delete order and give a review, which will appear on the   homepage
+- Admin can add or delete a product and manage all orders of clients on this website
+
 
 ## This web site made with
 

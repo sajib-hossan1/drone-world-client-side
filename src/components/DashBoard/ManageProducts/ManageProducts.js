@@ -8,7 +8,7 @@ const ManageProducts = () => {
     const [products, setProducts] = useState([]);
 
     useEffect(() => {
-        fetch('https://drone-world-server.vercel.app/products')
+        fetch('https://drone-world-server.onrender.com/products')
         .then(res => res.json())
         .then(data => setProducts(data))
     },[])
@@ -18,7 +18,7 @@ const ManageProducts = () => {
         console.log(id);
         const proceed = window.confirm('Are you sure you want to delete?')
         if (proceed) {
-            const url = `https://drone-world-server.vercel.app/products/${id}`
+            const url = `https://drone-world-server.onrender.com/products/${id}`
             fetch(url, {
                 method: 'DELETE',
             })

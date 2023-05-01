@@ -39,7 +39,7 @@ const BuyNow = () => {
         const status = 'Pending'
         data.status = status;
 
-        fetch('https://drone-world-server.vercel.app/order', {
+        fetch('https://drone-world-server.onrender.com/order', {
             method : 'POST',
             headers : {
                 'content-type' : 'application/json'
@@ -59,7 +59,7 @@ const BuyNow = () => {
 
     // get item/order item details from database
     useEffect(() => {
-        fetch(`https://drone-world-server.vercel.app/buyNow/${id}`)
+        fetch(`https://drone-world-server.onrender.com/buyNow/${id}`)
         .then(res => res.json())
         .then(data => setProductDetails(data))
     } ,[])

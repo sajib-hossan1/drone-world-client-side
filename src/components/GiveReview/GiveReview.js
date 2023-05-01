@@ -36,7 +36,7 @@ const GiveReview = () => {
         const customerReview = {
             ...review
         }
-        fetch('https://drone-world-server.vercel.app/customerReview', {
+        fetch('https://drone-world-server.onrender.com/customerReview', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
